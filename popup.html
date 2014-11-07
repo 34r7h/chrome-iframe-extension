@@ -1,0 +1,53 @@
+<!doctype html>
+<html ng-app="irth">
+  <head>
+    <title>Tracking Popdown</title>
+    <style>
+      body {
+        width: 500px;
+
+        height: 500px;
+        background: rgba(245,109,227,.38);
+      }
+
+     
+    </style>
+
+    <!--
+      - JavaScript and HTML must be in separate files: see our Content Security
+      - Policy documentation[1] for details and explanation.
+      -
+      - [1]: http://developer.chrome.com/extensions/contentSecurityPolicy.html
+     -->
+
+  </head>
+    <script src="angular.min.js"></script>
+    
+  <script src="irth.js"></script>
+  <body ng-controller="ctrl" >
+  <div style="text-align:center; background:white; padding:3% 0;">
+	  <button style="width:20%;" ng-click="hideAll(); activityBeGone = ''"><h4>Activity </h4></button>
+	  <span style="width:5%"></span>
+	  <button style="width:20%" ng-click="hideAll(); dietBeGone = ''"><h4>Diet </h4></button>
+	  <span style="width:5%"></span>
+	  <button style="width:20%" ng-click="hideAll(); exerciseBeGone = ''"><h4>Exercise </h4></button>
+    <span style="width:5%"></span>
+    <button style="width:20%" ng-click="hideAll(); dayBeGone = ''"><h4>Assess </h4></button>
+
+  </div>
+<br>
+<div style="width:100%; height:100%;">
+
+  		<iframe src="https://docs.google.com/forms/d/1EMr0bwHxI8s82Qwcb0tSEwbroV_sVfzdEnBgktfWh40/viewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0" style="{{activityBeGone}}">Loading...</iframe>
+
+  		<iframe src="https://docs.google.com/forms/d/1HMCIjLzWb7hF-TKn6bi-s_T5_4buVWvmxp2oJoD0MhE/viewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0" style="{{dietBeGone}}">Loading...</iframe>
+
+  		<iframe src="https://docs.google.com/forms/d/1lMXQyzQotZYN1yQiiS48qU41Dn7IM76z3ZI3vXLMOeA/viewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0" style="{{exerciseBeGone}}">Loading...</iframe>
+
+      <iframe src="https://docs.google.com/forms/d/1inw0i4JGtcMNhB0NH2z9PKxeyuetXK-Z8yO6Vlrr8gk/viewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0" style="{{dayBeGone}}">Loading...</iframe>
+
+
+</div>
+  </body>
+</html>
+
