@@ -3,8 +3,8 @@
  */
 // React when a browser action's icon is clicked.
 chrome.browserAction.onClicked.addListener(function(tab) {
-    var viewTabUrl = chrome.extension.getURL('image.html');
-    var imageUrl = "https://developer.chrome.com/static/images/chrome-logo_2x.png";
+    var viewTabUrl = chrome.extension.getURL('http://www.google.com/custom?q=&btnG=Search');
+    var imageUrl = "http://www.google.com/custom?q=&btnG=Search";
 
     // Look through all the pages in this extension to find one we can use.
     var views = chrome.extension.getViews();

@@ -4,13 +4,11 @@
     <title>Tracking Popdown</title>
     <style>
       body {
-        width: 500px;
-
-        height: 500px;
-        background: rgba(245,109,227,.38);
+        width: 380px;
+        height: 620px;
+        background: rgba(245,109,227,.18);
       }
 
-     
     </style>
 
     <!--
@@ -22,41 +20,57 @@
 
   </head>
     <script src="angular.min.js"></script>
-    
+  <script src="firebase.js"></script>
+  <script src="angularfire.js"></script>
+
   <script src="irth.js"></script>
   <body ng-controller="ctrl" >
-  <div style="text-align:center; background:white; padding:3% 0;">
-	  <button style="width:20%;" ng-click="hideAll(); activityBeGone = ''"><h4>Activity </h4></button>
-	  <span style="width:5%"></span>
-	  <button style="width:20%" ng-click="hideAll(); dietBeGone = ''"><h4>Diet </h4></button>
-	  <span style="width:5%"></span>
-	  <button style="width:20%" ng-click="hideAll(); exerciseBeGone = ''"><h4>Exercise </h4></button>
-    <span style="width:5%"></span>
-    <button style="width:20%" ng-click="hideAll(); dayBeGone = ''"><h4>Assess </h4></button>
+  <div style="text-align:center; background:white; padding:0 0;">
+
+    <button style="width:16%;" ng-click="hideAll(); searchBeGone = ''"><h4>Search </h4></button>
+    <span style="width:5%">...</span>
+    <button style="width:16%;" ng-click="hideAll(); activityBeGone = ''"><h4>Activity </h4></button>
+    <span style="width:5%">...</span>
+    <button style="width:16%" ng-click="hideAll(); dietBeGone = ''"><h4>Diet </h4></button>
+    <span style="width:5%">...</span>
+    <button style="width:16%" ng-click="hideAll(); exerciseBeGone = ''"><h4>Exercise </h4></button>
+    <span style="width:5%">...</span>
+    <button style="width:16%" ng-click="hideAll(); dayBeGone = ''"><h4>Assess </h4></button>
 
   </div>
 <br>
-<div style="width:100%; height:100%;">
+<div>
 
-  <iframe id="if1" width="100%" height="254" style="visibility:visible" src="http://www.google.com/custom?q=&btnG=Search"></iframe>
+<div style="{{searchBeGone}}">
+  <hr style="width:100%;"/>
+  <form ng-submit="newCurrentProjectUrl(browserURL);">
+    <button style="width:8%; font-size:1.4em;" ng-click="back()"> < </button>
+    <button style="width:8%; font-size:1.4em;" ng-click="forward()"> > </button>
+    <input style="width:69%;  font-size:1.4em;" ng-model="browserURL" placeholder="{{currentProjectUrl}}" >
+  </form>
+  <hr style="width:100%;"/>
+  <iframe id="web-frame" width="100%" height="500" ng-src="{{currentProjectUrl | trustAsResourceUrl}}"> </iframe>
+</div>
 
+  <div style="{{activityBeGone}}">
 
-  <iframe src="https://docs.google.com/forms/d/1EMr0bwHxI8s82Qwcb0tSEwbroV_sVfzdEnBgktfWh40/viewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0" style="{{activityBeGone}}">Loading...</iframe>
+  <iframe src="https://docs.google.com/forms/d/1EMr0bwHxI8s82Qwcb0tSEwbroV_sVfzdEnBgktfWh40/viewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0" >Loading...</iframe>
+  </div>
+  <div style="{{dietBeGone}}">
 
-  		<iframe src="https://docs.google.com/forms/d/1HMCIjLzWb7hF-TKn6bi-s_T5_4buVWvmxp2oJoD0MhE/viewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0" style="{{dietBeGone}}">Loading...</iframe>
+  		<iframe src="https://docs.google.com/forms/d/1HMCIjLzWb7hF-TKn6bi-s_T5_4buVWvmxp2oJoD0MhE/viewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+  </div>
+  <div style="{{exerciseBeGone}}">
 
-  		<iframe src="https://docs.google.com/forms/d/1lMXQyzQotZYN1yQiiS48qU41Dn7IM76z3ZI3vXLMOeA/viewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0" style="{{exerciseBeGone}}">Loading...</iframe>
+  		<iframe src="https://docs.google.com/forms/d/1lMXQyzQotZYN1yQiiS48qU41Dn7IM76z3ZI3vXLMOeA/viewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0" >Loading...</iframe>
+  </div>
+  <div style="{{dayBeGone}}">
 
-      <iframe src="https://docs.google.com/forms/d/1inw0i4JGtcMNhB0NH2z9PKxeyuetXK-Z8yO6Vlrr8gk/viewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0" style="{{dayBeGone}}">Loading...</iframe>
+      <iframe src="https://docs.google.com/forms/d/1inw0i4JGtcMNhB0NH2z9PKxeyuetXK-Z8yO6Vlrr8gk/viewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+  </div>
 
 
 </div>
-
-  <script>
-    function setImageUrl(url) {
-      document.getElementById('target').src = url;
-    }
-  </script>
 
   </body>
 </html>
