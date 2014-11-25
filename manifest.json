@@ -2,13 +2,16 @@
   "manifest_version": 2,
 
   "name": "Your Life Activity",
+  "background": {"scripts":"background.js"},
   "description": "Tracking daily activities from the browser.",
-  "version": "1.3",
+  "omnibox": {"keyword":"pop"},
+  "version": "1.5",
 
   "browser_action": {
     "default_icon": "icon.png",
     "default_popup": "popup.html",
     "default_title": "Your Life Activity"
+
   },
     "permissions": [
         "<all_urls>",
