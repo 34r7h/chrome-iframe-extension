@@ -1,6 +1,16 @@
 'use strict';
-angular.module('irth', [])
-.controller('ctrl', function($scope, $window){
+angular.module('irth', ['firebase'])
+.controller('ctrl', function($scope, $window, $firebase, $timeout){
+
+		var dbURL = 'https://tezt.firebaseio.com';
+		var ref = new Firebase(dbURL + '/life');
+		var sync = $firebase(ref);
+		$scope.syncObject = sync.$asObject();
+		$scope.syncArray = sync.$asArray();
+		$timeout(function(){
+			console.log($scope.syncArray.splice(-1)[0].$value);
+			$scope.currentProjectUrl = $scope.syncArray.splice(-1)[0].$value;
+		},1000);
 
 		$scope.back = function(){
 			$window.history.back();
@@ -9,8 +19,14 @@ angular.module('irth', [])
 			$window.history.forward();
 		};
 
-
-	$scope.newCurrentProjectUrl = function(url){
+	$scope.gSearch = function(query){
+		$scope.currentProjectUrl = 'https://duckduckgo.com/?q=' + query;
+		$scope.browserURL = $scope.currentProjectUrl;
+		if($scope.syncArray.splice(-1)[0].$value !== $scope.currentProjectUrl){
+			sync.$push($scope.browserURL);
+		}
+	};
+	$scope.newUrl = function(url){
 		if (url[4] !== ':' && url[5] !== ':'){
 			var properUrl = 'http://' + url;
 			$scope.currentProjectUrl = properUrl;
@@ -18,8 +34,9 @@ angular.module('irth', [])
 			$scope.currentProjectUrl = url;
 		}
 		$scope.browserURL = $scope.currentProjectUrl;
-
-
+		if($scope.syncArray.splice(-1)[0].$value !== $scope.currentProjectUrl){
+			sync.$push($scope.browserURL);
+		}
 
 
 	};

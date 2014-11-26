@@ -20,7 +20,8 @@
 
   </head>
     <script src="angular.min.js"></script>
-
+  <script src="firebase.js"></script>
+  <script src="angularfire.js"></script>
   <script src="irth.js"></script>
   <body ng-controller="ctrl" >
   <div style="text-align:center; background:white; padding:0 0;">
@@ -31,11 +32,15 @@
 <div>
 
 <div>
-  <form ng-submit="newCurrentProjectUrl(browserURL);">
-    <button style="width:8%; font-size:1.4em;" ng-click="back()"> < </button>
-    <button style="width:8%; font-size:1.4em;" ng-click="forward()"> > </button>
-    <input style="width:69%;  font-size:1.4em;" ng-model="browserURL" placeholder="{{currentProjectUrl}}" >
-  </form>
+  <span style="width: 100%">
+     <button style="width:8%; float:left; font-size:1.4em;" ng-click="back()"> < </button>
+    <button style="width:8%; float:left; font-size:1.4em;" ng-click="forward()"> > </button>
+    <form style="width:62%; float:left" ng-submit="newUrl(browserURL);">
+      <input style="width:100%;  font-size:1.4em;" ng-model="browserURL" placeholder="{{currentProjectUrl}}" >
+    </form>
+  <button style="width:20%; float:right; font-size:1.4em;" ng-click="gSearch(browserURL)">Search</button>
+  </span>
+
   <hr style="width:100%;"/>
   <iframe id="web-frame" width="100%" height="500" ng-src="{{currentProjectUrl | trustAsResourceUrl}}"> </iframe>
 </div>

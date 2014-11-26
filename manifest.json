@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
 
-  "name": "Little Tab",
+  "name": "Mini Tab",
   "background": {
     "scripts":["background.js"]
   },
@@ -12,7 +12,7 @@
   "browser_action": {
     "default_icon": "icon.png",
     "default_popup": "popup.html",
-    "default_title": "Little Tab"
+    "default_title": "Mini Tab"
 
   },
     "permissions": [
