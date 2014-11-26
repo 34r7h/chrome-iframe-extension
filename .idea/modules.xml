@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../chrome-popup/.idea/chrome popup.iml" filepath="$PROJECT_DIR$/../chrome-popup/.idea/chrome popup.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../chrome-iframe-extension/.idea/chrome-iframe-extension.iml" filepath="$PROJECT_DIR$/../chrome-iframe-extension/.idea/chrome-iframe-extension.iml" />
     </modules>
   </component>
 </project>
