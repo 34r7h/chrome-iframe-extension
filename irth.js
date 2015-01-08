@@ -3,7 +3,7 @@ angular.module('irth', ['firebase'])
 .controller('ctrl', function($scope, $window, $firebase, $timeout){
 
 		var dbURL = 'https://tezt.firebaseio.com';
-		var ref = new Firebase(dbURL + '/minibrowser/');
+		var ref = new Firebase(dbURL + '/minibrowser/irth/');
 		var sync = $firebase(ref);
 		$scope.syncObject = sync.$asObject();
 		$scope.syncArray = sync.$asArray();

@@ -4,9 +4,9 @@
     <title>Tracking Popdown</title>
     <style>
       body {
-        width: 380px;
-        height: 620px;
-        background: rgba(245,109,227,.18);
+        width: 600px;
+        max-height: 600px;
+        background: url('myst.jpg') center center;
       }
 
     </style>
@@ -24,25 +24,22 @@
   <script src="angularfire.js"></script>
   <script src="irth.js"></script>
   <body ng-controller="ctrl" >
-  <div style="text-align:center; background:white; padding:0 0;">
 
-
-  </div>
-<br>
-<div>
-
-<div>
-  <span style="width: 100%">
-     <button style="width:8%; float:left; font-size:1.4em;" ng-click="back()"> < </button>
-    <button style="width:8%; float:left; font-size:1.4em;" ng-click="forward()"> > </button>
-    <form style="width:62%; float:left" ng-submit="newUrl(browserURL);">
+<div style="width: 100%; height: 580px;">
+  <span style="width: 100%; height: 30px">
+    <button style="width:4%; float:left; font-size:1.4em;" ng-click="back()"> < </button>
+    <button style="width:4%; float:left; font-size:1.4em;" ng-click="forward()"> > </button>
+    <form style="width:54%; float:left" ng-submit="newUrl(browserURL);">
       <input style="width:100%;  font-size:1.4em;" ng-model="browserURL" placeholder="{{currentProjectUrl}}" >
     </form>
-  <button style="width:20%; float:right; font-size:1.4em;" ng-click="gSearch(browserURL)">Search</button>
+    <button style="width:14%; float:left; font-size:1.4em;" ng-click="gSearch(browserURL)">Search</button>
+
+  <a style="text-align:center; width:8%; margin: 0 1%; float:right; background:rgba(0,0,0,.38); color:ghostwhite; text-shadow: 2px 2px 2px rgba(0,0,0,.62); box-shadow: 0px 3px 2px ghostwhite; font-size:1.6em;" ng-click="currentProjectUrl = 'http://devdocs.io'">Docs</a>
+  <a style="text-align:center; width:8%; margin: 0 1%; float:right; background:rgba(0,0,0,.38); color:ghostwhite; text-shadow: 2px 2px 2px rgba(0,0,0,.62); box-shadow: 0px 3px 2px ghostwhite; font-size:1.6em;" ng-click="currentProjectUrl = 'http://anything2mp3.com'">Rip</a>
   </span>
 
   <hr style="width:100%;"/>
-  <iframe id="web-frame" width="100%" height="500" ng-src="{{currentProjectUrl | trustAsResourceUrl}}"> </iframe>
+  <iframe id="web-frame" width="100%" height="550" ng-src="{{currentProjectUrl | trustAsResourceUrl}}"> </iframe>
 </div>
 
 
